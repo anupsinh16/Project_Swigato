@@ -20,10 +20,11 @@
 
 div.background{
 
-  background-image: url("./bgimg2.jpeg");
+  background-image: url("./images/bgimg2.jpeg");
   background-size:100%;
   background-position: center;
-
+  height: auto;
+  width: auto;
   
   
 }
@@ -48,6 +49,52 @@ div.inbg h4{
   
   color: #ffb005;opacity: 1;
 }
+
+#feat {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  
+}
+.featit{
+  color:darkred;
+  padding: 50px;
+  width: auto;
+  height: auto;
+  max-width:500px;
+  max-height: 240px;
+  background-color:rgb(250, 214, 171);
+  border: 2px  red;
+  border-radius: 15px;
+;
+}
+.featit:hover{
+  filter: drop-shadow(0 0 2em #c11d07aa);
+}
+ .icons{
+  margin: 3%;
+  color:#eeff05;
+ }
+.icons:hover{
+  color: magenta ;
+  font-Size : large;
+}
+footer{
+  background-color: #888;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+}
+#footer1,#footer2{
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+  
+}
+#footer3,.icons{
+  margin: 2%;
+}
+
 
 .logo {
   height: 6em;
