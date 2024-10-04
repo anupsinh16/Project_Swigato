@@ -7,7 +7,8 @@ import About from './About'
 import Content from './content'
 import ButtonBaseDemo from './content2'
 import Navbar from './navbar'
-
+import Cart from './cart'
+import Foods from './foods'
 import { BrowserRouter,Routes, Route } from 'react-router-dom'
 
 
@@ -21,6 +22,8 @@ function Routing() {
             <Route path='/' element={<ButtonBaseDemo/>}/>
             <Route path='/about' element={<About/>}/>
             <Route path='/contact' element={<Contact/>}/>
+            <Route path='/cart' element={<Cart/>}/>
+            <Route path='/foods' element={<Foods/>}/>
         </Routes>
    
    </BrowserRouter>

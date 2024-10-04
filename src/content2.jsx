@@ -13,18 +13,18 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 const images = [
   {
     url: '/images/pizza.jpg',
-    title: 'Pizza',
+    title: <a href='/foods' style={{color:"white"}}>Pizza</a>,
     width: '33%',
     
   },
   {
     url: '/images/burger.jpg',
-    title: 'Burgers',
+    title: <a href='/foods' style={{color:"white"}}>Burger</a>,
     width: '33%',
   },
   {
     url: '/images/indcuisine.jpg',
-    title: 'Indian Cuisine',
+    title: <a href='/foods' style={{color:"white"}}>Indian Cuisine</a>,
     width: '34%',
   },
   // {
@@ -126,7 +126,7 @@ export default function ButtonBaseDemo() {
                 {/* <button type="button" class="btn btn-warning" style={{margin:"2% ", color:"red"}}> <b>ORDER NOW</b></button> */}
                 <div style={{display:"flex",justifyContent:"center"}}>
                  <Stack spacing={2} direction="row" id="ordbut">
-                 <Button variant="contained" href="#" color="success">ORDER NOW</Button>
+                 <Button variant="contained" href="/foods" color="success">ORDER NOW</Button>
       
                 </Stack>
                 </div>
@@ -210,30 +210,7 @@ export default function ButtonBaseDemo() {
     </div>,
     
     
-    <footer>
-      <div id="footer1">
-        <h3>Important Links</h3>
-        <a href='/about'>About</a>
-        <a href='/contact'>Contact</a>
-        <a href='#'>Cart</a>
-      </div>
-
-      <div id="footer2">
-        <h3>
-          Get in touch!
-        </h3>
-        <input type="email"  placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping"></input>
-        <a href='#'><button type="button" class="btn btn-danger" >Submit</button></a>
-      </div>
-
-      <div id="footer3">
-        <h3>Connect with us on Social Platforms</h3>
-        <a href='#' className='icons'><InstagramIcon/></a>
-        <a href='#' className='icons'><FacebookIcon/></a>
-        <a href='#' className='icons'><YouTubeIcon/></a>
-        
-      </div>
-    </footer>
+    
     
     
 

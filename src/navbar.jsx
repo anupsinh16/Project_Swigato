@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import HomeIcon from '@mui/icons-material/Home';
 
 function Navbar() {
   
@@ -15,6 +16,7 @@ function Navbar() {
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent" >
       <ul className="navbar-nav me-auto mb-2 mb-lg-0 me-2">
+        <li style={{color:"red",marginTop:"5px",marginRight:"5px"}}><a href='/'><HomeIcon/></a></li>
         <li className="nav-item">
           <a className="nav-link active" aria-current="page" href="/about" id='nit' >About</a>
         </li>
@@ -36,7 +38,7 @@ function Navbar() {
           <a className="nav-link" aria-current="page" href='/contact' id='nit'>Contact us</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#" id='nit'>My cart</a>
+          <a className="nav-link" href="/cart" id='nit'>My cart</a>
         </li>
       </ul>
       <form className="d-flex" role="search">

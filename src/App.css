@@ -12,7 +12,7 @@
 }
 #intro{
   border-radius: 20px;
-  border: 2px solid red;
+  border: 2px ;
   margin: 0.2%;
 }
 
@@ -84,6 +84,9 @@ footer{
   display: flex;
   justify-content: center;
   justify-content: space-around;
+  max-width:"80%",
+ 
+  
 }
 #footer1,#footer2{
   display: flex;
