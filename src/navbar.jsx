@@ -8,7 +8,7 @@ function Navbar() {
   
   return (
     <>
-<nav className="navbar navbar-expand-lg  bg-dark bg-gradient"   >
+<nav className="navbar navbar-expand-lg fixed-top bg-dark bg-gradient"  id='nav' >
   <div className="container-fluid ">
     <a className="navbar-brand " href="#" style={{color : 'red', fontFamily : 'Fredoka'}}><b></b></a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@ function Navbar() {
           <a className="nav-link active" aria-current="page" href="/about" id='nit' >About</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#" id='nit'>Sign-in</a>
+          <a className="nav-link" href="/forms" id='nit'>Sign-in</a>
         </li>
          {/* <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

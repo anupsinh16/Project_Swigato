@@ -113,10 +113,10 @@ export default function ButtonBaseDemo() {
     <>
     <div className='background' id='intro'>
         
-        <div className='inbg'>
-            <div>
+       
+            <div className='inbg'>
               <br/> <br/> <br/> 
-            <img src='/images\SWIGATO.png ' style={{height:"150px"}}></img>
+            <img src='/images\SWIGATO.png ' style={{width:"50%",maxWidth:"500px", objectFit:"contain"}}></img>
                 <h3>Just Order 
                     and Chill !!!</h3>
                     <br/> <br/> <br/> 
@@ -132,12 +132,12 @@ export default function ButtonBaseDemo() {
                 </div>
                 
                 
-            </div>
+           
             
 
         </div>
         
-    </div>,
+    </div>
 
 
     
@@ -181,23 +181,23 @@ export default function ButtonBaseDemo() {
         </ImageButton>
       ))}
     </Box>
-    </div>,
+    </div>
     
    
 
-
+<br/>
 
     <div>
       <h1 style={{color:"red"}}> Why Swigato ...</h1>
       <br></br>
       <div id = "feat">
         <div className='featit'><h4>Fast and Safe Delivery</h4 >
-        <img src='/images/fast deli.jpg' style={{maxWidth:"80%",maxHeight:"90%"}}/>
+        <img src='/images/fast deli.jpg' style={{maxWidth:"80%",maxHeight:"90%"}} className='featitimg'/>
         </div>
         <div className='featit'><h4>Free Delivery</h4>
-        <img src='/images/freedelv.png' style={{maxWidth:"100%",maxHeight:"100%"}}/></div>
+        <img src='/images/freedelv.png' style={{maxWidth:"100%",maxHeight:"100%"}} className='featitimg'/></div>
         <div className='featit'><h4>100% Food Quality Assurance</h4>
-        <img src='/images/safefood.jpg' style={{maxWidth:"80%",maxHeight:"90%"}}/></div>
+        <img src='/images/safefood.jpg' style={{maxWidth:"80%",maxHeight:"90%"}} className='featitimg'/></div>
         
 
       </div>

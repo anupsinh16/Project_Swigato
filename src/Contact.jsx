@@ -16,7 +16,7 @@ function Contact() {
 
   return (
     <>
-       <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+       <div className='cid' >
           <div style={{flexBasis:"100%"}}>
             <h1 style={{color:"red", margin:"2%"}}>Contact us</h1>
             <br/>
@@ -34,7 +34,7 @@ function Contact() {
        </div>
        <hr></hr>
 
-       <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+       <div className='cid' >
         <div style={{flexBasis:"100%"}}>
           <h3>Fill up this following information and we will contact you within 24 hr...</h3>
           <br/>

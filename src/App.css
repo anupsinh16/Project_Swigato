@@ -21,7 +21,8 @@
 div.background{
 
   background-image: url("./images/bgimg2.jpeg");
-  background-size:100%;
+  background-size:cover;
+  background-repeat: no-repeat;
   background-position: center;
   height: auto;
   width: auto;
@@ -30,10 +31,12 @@ div.background{
 }
 div.inbg{
  
-  opacity: 1;
+  object-fit: contain;
   
   
 }
+
+
 div.inbg p{
   margin: 2%;
   font-weight:600;
@@ -63,11 +66,12 @@ div.inbg h4{
   height: auto;
   max-width:500px;
   max-height: 240px;
-  background-color:rgb(250, 214, 171);
+  /* background-color:rgb(250, 214, 171); */
   border: 2px  red;
   border-radius: 15px;
 ;
 }
+
 .featit:hover{
   filter: drop-shadow(0 0 2em #c11d07aa);
 }
@@ -97,6 +101,45 @@ footer{
 #footer3,.icons{
   margin: 2%;
 }
+@media screen and (max-width:700px) {
+  #feat , footer,.cid{
+    flex-direction: column;
+    
+  }
+  .featit{
+    margin-top: 5%;
+  }
+  .featitimg{
+    width: 150px;
+    
+  }
+}
+
+#cards{
+  margin: 2%;
+  justify-content: center;
+  background-color: #dadbf3;
+}
+.card:hover{
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+  
+}
+
+.cid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+#signin{
+  margin: 5%;
+ 
+  background-color: #dadbf3;
+  padding: 2%;
+  border-radius: 10px;
+}
+
 
 
 .logo {
