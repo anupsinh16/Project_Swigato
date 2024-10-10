@@ -12,7 +12,6 @@ import Footer from "./footer.jsx";
 
 
 
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
   
@@ -22,6 +21,7 @@ createRoot(document.getElementById("root")).render(
     <br/><br/>
     <Routing/>
     <Footer/>
+    
     
     
 

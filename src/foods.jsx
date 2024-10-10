@@ -2,6 +2,9 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { useContext,createContext } from 'react'
+
+const foodinfo = createContext();
 
 
 const food = [{
@@ -127,37 +130,110 @@ const food = [{
   "quantity": 0
 }]
 
+
+
 function Foods() {
   
+  const[cartitem , setcartitem] = useState([]);
+
+
+  const Addtocart = (id)=> {
+    const selecteditem = food.find(foodit => foodit.id === id);
+    setcartitem(prevCartItems => [...prevCartItems, selecteditem]);
+
+
+  }
+
+  const Removefromcart = (id) =>{
+    const remitem = cartitem.filter(foodit => foodit.id !== id)
+    setcartitem (remitem)
+  }
 
   return (
-    <> 
-    <div style={{margin:"1%"}}>
-      <h1 style={{color:"#3c3e81"}}>Food Items</h1>
-      
-    </div>
-
-
-
-    <div className="row" id='cards'>
-       {food.map((foodit)=>(
-        
-        <div className="col-sm-3 mb-3 mb-sm-0" style={{margin:"2%"}}>
-        <div className="card" style={{width:"18rem",height:"400px"}}>
-          <img src={foodit.img} className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h5 className="card-title">{foodit.name}</h5>
-            <p className="card-text">Price : Rs.{foodit.price}</p>
-            <a href="#" className="btn btn-primary" >Add to cart</a>
-          </div>
-        </div>
-     </div>
-
-       ))}
-    </div>
     
+   <foodinfo.Provider value={cartitem}>
+    <>
+    <div>
+      <h1>Food Items</h1>
+
+      <div className="row" id="cards">
+        {food.map((foodit) => (
+          <div className="col-sm-3 mb-3 mb-sm-0" style={{ margin: "2%" }} key={foodit.id}>
+            <div className="card" style={{ width: "18rem", height: "400px" }}>
+              <img src={foodit.img} className="card-img-top" alt={foodit.name} />
+              <div className="card-body">
+                <h5 className="card-title">{foodit.name}</h5>
+                <p className="card-text">Price: Rs.{foodit.price}</p>
+                <button className="btn btn-primary" onClick={() => Addtocart(foodit.id, food)}>
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+        ))}
+      </div>
+    </div>
+    <Cart Removefromcart={Removefromcart} />
     </>
-  )
+    </foodinfo.Provider>
+    
+
+    /* <div>
+      <h1>My Cart</h1>
+
+      {cartitem.length === 0 ? (
+        <p>Your cart is empty!</p>
+      ) : (
+        cartitem.map((foodit) => (
+          <div key={foodit.id}>
+            <p>
+              {foodit.name} - Rs.{foodit.price}
+              <button className="btn btn-danger" style={{ marginLeft: '10px' }} onClick={() => Removefromcart(foodit.id)}>
+                Remove
+              </button>
+            </p>
+          </div>
+        ))
+      )}
+    </div> */
+    
+    
+  );
+}
+export default Foods
+
+export function Cart({ Removefromcart }) {
+  
+  const cartitem = useContext(foodinfo);  
+  return (
+
+    <>
+    
+    
+    <div>
+      <h1>My Cart</h1>
+      {cartitem.length === 0 ? (
+        <p>Your cart is empty!</p>
+      ) : (
+        cartitem.map((foodit) => (
+          <div key={foodit.id}>
+            <p>
+              {foodit.name} - Rs.{foodit.price}
+              {/* You can pass the Removefromcart function as a prop or handle it differently */}
+              <button className="btn btn-danger" style={{ marginLeft: '10px' }} onClick={() => Removefromcart(foodit.id)}>
+                Remove
+              </button>
+            </p>
+          </div>
+        ))
+      )}
+    </div>
+    </>
+  );
 }
 
-export default Foods
+
+
+
+
