@@ -84,11 +84,13 @@ div.inbg h4{
   font-Size : large;
 }
 footer{
+  
   background-color: #888;
   display: flex;
   justify-content: center;
   justify-content: space-around;
   max-width:"80%",
+  
  
   
 }

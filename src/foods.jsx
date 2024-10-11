@@ -2,9 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { useContext,createContext } from 'react'
-
-const foodinfo = createContext();
+import { useContext,createContext,useEffect } from 'react'
+import { foodinfo } from './Routingapp';
 
 
 const food = [{
@@ -134,15 +133,33 @@ const food = [{
 
 function Foods() {
   
-  const[cartitem , setcartitem] = useState([]);
+  const [cartitem, setcartitem] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartitem));
+  }, [cartitem]);
 
 
   const Addtocart = (id)=> {
-    const selecteditem = food.find(foodit => foodit.id === id);
-    setcartitem(prevCartItems => [...prevCartItems, selecteditem]);
+    const selecteditem = food.find((foodit) => foodit.id === id);
+    console.log("Selected Item ID:", selecteditem.id);
+    const itemInCart = cartitem.find((item) => item.id === selecteditem.id); // Checking if the item already exists in the cart
+    console.log("Item in Cart ID:", itemInCart ? itemInCart.id : "None");
 
+    if (!itemInCart) {
+      setcartitem((prevCartItems) => [...prevCartItems, selecteditem]);
+      console.log("Added to cart:", selecteditem);
+    } else {
+      console.log("Item already in cart!");
+    }
 
+    console.log("Current Cart Items:", cartitem);
   }
+
+
 
   const Removefromcart = (id) =>{
     const remitem = cartitem.filter(foodit => foodit.id !== id)
@@ -151,7 +168,7 @@ function Foods() {
 
   return (
     
-   <foodinfo.Provider value={cartitem}>
+   <foodinfo.Provider value={{ cartitem, Removefromcart }}>
     <>
     <div>
       <h1>Food Items</h1>
@@ -174,7 +191,7 @@ function Foods() {
         ))}
       </div>
     </div>
-    <Cart Removefromcart={Removefromcart} />
+    
     </>
     </foodinfo.Provider>
     
@@ -203,35 +220,45 @@ function Foods() {
 }
 export default Foods
 
-export function Cart({ Removefromcart }) {
-  
-  const cartitem = useContext(foodinfo);  
-  return (
+// export const Removefromcart = (id) =>{
+//   const remitem = cartitem.filter(foodit => foodit.id !== id)
+//   setcartitem (remitem)
+// }
 
-    <>
+// export function Cart({ Removefromcart }) {
+  
+//   const cartitem = useContext(foodinfo);  
+
+//   if (!Array.isArray(cartitem)) {
+//     console.error("cartitem is not an array:", cartitem);
+//     return <p>Error: cartitem is not an array</p>;
+//   }
+//   return (
+
+//     <>
     
     
-    <div>
-      <h1>My Cart</h1>
-      {cartitem.length === 0 ? (
-        <p>Your cart is empty!</p>
-      ) : (
-        cartitem.map((foodit) => (
-          <div key={foodit.id}>
-            <p>
-              {foodit.name} - Rs.{foodit.price}
-              {/* You can pass the Removefromcart function as a prop or handle it differently */}
-              <button className="btn btn-danger" style={{ marginLeft: '10px' }} onClick={() => Removefromcart(foodit.id)}>
-                Remove
-              </button>
-            </p>
-          </div>
-        ))
-      )}
-    </div>
-    </>
-  );
-}
+//     <div>
+//       <h1>My Cart</h1>
+//       {cartitem.length === 0 ? (
+//         <p>Your cart is empty!</p>
+//       ) : (
+//         cartitem.map((foodit) => (
+//           <div key={foodit.id}>
+//             <p>
+//               {foodit.name} - Rs.{foodit.price}
+//               {/* You can pass the Removefromcart function as a prop or handle it differently */}
+//               <button className="btn btn-danger" style={{ marginLeft: '10px' }} onClick={() => Removefromcart(foodit.id)}>
+//                 Remove
+//               </button>
+//             </p>
+//           </div>
+//         ))
+//       )}
+//     </div>
+//     </>
+//   );
+// }
 
 
 
