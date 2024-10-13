@@ -17,10 +17,10 @@ createRoot(document.getElementById("root")).render(
   
     {/* // <App/> */}
    
-    <Navbar/>
+    
     <br/><br/>
     <Routing/>
-    <Footer/>
+    
     
     
     

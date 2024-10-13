@@ -20,10 +20,10 @@ function Cartt() {
 
   
 
-  if (!Array.isArray(cartitem)) {
-    console.error("cartitem is not an array:", cartitem);
-    return <p>Error: cartitem is not an array</p>;
-  }
+  // if (!Array.isArray(cartitem)) {
+  //   console.error("cartitem is not an array:", cartitem);
+  //   return <p>Error: cartitem is not an array</p>;
+  // }
   return (
 
     <>

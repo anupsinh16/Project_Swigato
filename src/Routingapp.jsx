@@ -10,8 +10,10 @@ import Navbar from './navbar'
 import Cartt from './cart'
 import Foods from './foods'
 import Form from './form'
+import Footer from './footer'
 import Form2 from './form2'
 import { BrowserRouter,Routes, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 
@@ -21,13 +23,14 @@ function Routing() {
   const [cartitem, setcartitem] = useState(() => {
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart):[]
-  })
+  })  
   
 
 
   return (
    <BrowserRouter>
    <foodinfo.Provider value={{cartitem, setcartitem}}>
+   <Navbar/>
         <Routes>
             <Route path='/' element={<ButtonBaseDemo/>}/>
             <Route path='/about' element={<About/>}/>
@@ -37,6 +40,7 @@ function Routing() {
             <Route path='/forms' element={<Form2/>}/>
             <Route path='/register' element={<Form/>}/>
         </Routes>
+      <Footer/>
         </foodinfo.Provider>
    </BrowserRouter>
   )

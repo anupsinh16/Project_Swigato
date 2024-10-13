@@ -10,6 +10,7 @@ import { styled } from '@mui/material/styles';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import { NavLink } from 'react-router-dom';
 
 
 function Footer() {
@@ -20,8 +21,8 @@ function Footer() {
       <footer>
       <div id="footer1">
         <h3>Important Links</h3>
-        <a href='/about'>About</a>
-        <a href='/contact'>Contact</a>
+        <NavLink to='/about'>About</NavLink>
+        <NavLink to='/contact'>Contact</NavLink>
         <a href='/cart'>Cart</a>
       </div>
 
@@ -30,7 +31,7 @@ function Footer() {
           Get in touch!
         </h3>
         <input type="email"  placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping"></input>
-        <a href='#'><button type="button" class="btn btn-danger" style={{margin:"2%"}} >Submit</button></a>
+        <a href='#'><button type="button" className="btn btn-danger" style={{margin:"2%"}} >Submit</button></a>
       </div>
 
       <div id="footer3">

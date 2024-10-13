@@ -9,22 +9,23 @@ import './App.css'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import { NavLink } from 'react-router-dom';
 
 const images = [
   {
     url: '/images/pizza.jpg',
-    title: <a href='/foods' style={{color:"white"}}>Pizza</a>,
+    title: <NavLink to='/foods' style={{color:"white"}}>Pizza</NavLink>,
     width: '33%',
     
   },
   {
     url: '/images/burger.jpg',
-    title: <a href='/foods' style={{color:"white"}}>Burger</a>,
+    title: <NavLink to='/foods' style={{color:"white"}}>Burger</NavLink>,
     width: '33%',
   },
   {
     url: '/images/indcuisine.jpg',
-    title: <a href='/foods' style={{color:"white"}}>Indian Cuisine</a>,
+    title: <NavLink to='/foods' style={{color:"white"}}>Indian Cuisine</NavLink>,
     width: '34%',
   },
   // {
@@ -126,7 +127,7 @@ export default function ButtonBaseDemo() {
                 {/* <button type="button" class="btn btn-warning" style={{margin:"2% ", color:"red"}}> <b>ORDER NOW</b></button> */}
                 <div style={{display:"flex",justifyContent:"center"}}>
                  <Stack spacing={2} direction="row" id="ordbut">
-                 <Button variant="contained" href="/foods" color="success">ORDER NOW</Button>
+                 <NavLink to={"./foods"}><Button variant="contained"  color="success">ORDER NOW</Button></NavLink>
       
                 </Stack>
                 </div>

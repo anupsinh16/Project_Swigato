@@ -168,7 +168,7 @@ function Foods() {
 
   return (
     
-   <foodinfo.Provider value={{ cartitem, Removefromcart }}>
+   <foodinfo.Provider value={{ cartitem, setcartitem }}>
     <>
     <div>
       <h1>Food Items</h1>
