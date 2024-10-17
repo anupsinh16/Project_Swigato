@@ -14,18 +14,18 @@ import { NavLink } from 'react-router-dom';
 const images = [
   {
     url: '/images/pizza.jpg',
-    title: <NavLink to='/foods' style={{color:"white"}}>Pizza</NavLink>,
+    title: <NavLink to='/foods'  className='bt'>Pizza</NavLink>,
     width: '33%',
     
   },
   {
     url: '/images/burger.jpg',
-    title: <NavLink to='/foods' style={{color:"white"}}>Burger</NavLink>,
+    title: <NavLink to='/foods'  className='bt'>Burger</NavLink>,
     width: '33%',
   },
   {
     url: '/images/indcuisine.jpg',
-    title: <NavLink to='/foods' style={{color:"white"}}>Indian Cuisine</NavLink>,
+    title: <NavLink to='/foods' className='bt'>Indian Cuisine</NavLink>,
     width: '34%',
   },
   // {
@@ -118,19 +118,18 @@ export default function ButtonBaseDemo() {
             <div className='inbg'>
               <br/> <br/> <br/> 
             <img src='/images\SWIGATO.png ' style={{width:"50%",maxWidth:"500px", objectFit:"contain"}}></img>
-                <h3>Just Order 
-                    and Chill !!!</h3>
-                    <br/> <br/> <br/> 
+                <h3>Just Order and Chill !!!</h3>
+                    <br/>
                
                 
 
-                {/* <button type="button" class="btn btn-warning" style={{margin:"2% ", color:"red"}}> <b>ORDER NOW</b></button> */}
-                <div style={{display:"flex",justifyContent:"center"}}>
+                <NavLink to={"./foods"}><button type="button" class="btn btn-warning" style={{margin:"2% ", color:"red"}}> <b>ORDER NOW</b></button></NavLink>
+                {/* <div style={{display:"flex",justifyContent:"center"}}>
                  <Stack spacing={2} direction="row" id="ordbut">
                  <NavLink to={"./foods"}><Button variant="contained"  color="success">ORDER NOW</Button></NavLink>
       
                 </Stack>
-                </div>
+                </div> */}
                 
                 
            

@@ -40,12 +40,15 @@ function Navbar() {
           <NavLink className="nav-link" aria-current="page" to='/contact' id='nit'>Contact us</NavLink>
         </li>
         <li className="nav-item">
+          <NavLink className="nav-link" aria-current="page" to='/foods' id='nit'>Foods</NavLink>
+        </li>
+        <li className="nav-item">
           <a className="nav-link" href="/cart" id='nit'>My cart</a>
         </li>
       </ul>
       <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search for Restaurant and Food" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit" style={{color:"blue"}}>Search</button>
+        <button className="btn btn-outline-danger" type="submit" style={{color:"white"}}>Search</button>
       </form>
     </div>
   </div>

@@ -171,7 +171,7 @@ function Foods() {
    <foodinfo.Provider value={{ cartitem, setcartitem }}>
     <>
     <div>
-      <h1>Food Items</h1>
+      <h1 style={{margin:"1%",color:"#494cb6"}}>Food Items</h1>
 
       <div className="row" id="cards">
         {food.map((foodit) => (

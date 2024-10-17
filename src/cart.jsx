@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState,useContext,createContext } from 'react';
-
+import './App.css'
 import { foodinfo } from './Routingapp';
 
 
@@ -18,6 +18,17 @@ function Cartt() {
     localStorage.setItem('cart', JSON.stringify(remitem));
   };
 
+  const placeorder =() =>{
+    if(cartitem.length==0){
+      alert("OOPS....Your Cart is Empty !");
+
+    }
+    else{
+      alert("Order Placed Successfully...");
+      setcartitem([]);
+    }
+    
+  }
   
 
   // if (!Array.isArray(cartitem)) {
@@ -29,24 +40,31 @@ function Cartt() {
     <>
     
     
-    <div>
+    <div id='mycart'>
       <h1>My Cart</h1>
       {cartitem.length === 0 ? (
+        <>
         <p>Your cart is empty!</p>
+        <img src='/images/empty-cart.webp'></img>
+        </>
       ) : (
         cartitem.map((foodit) => (
           <div key={foodit.id}>
-            <p>
+            <div id='cartitem'>
               {foodit.name} - Rs.{foodit.price}
               
               <button className="btn btn-danger" style={{ marginLeft: '10px' }} onClick={() => Removefromcart(foodit.id)}>
                 Remove
               </button>
-            </p>
+            </div>
           </div>
         ))
       )}
+      <div>
+        <button className='btn btn-success' onClick={placeorder}>Place Order</button>
+      </div>
     </div>
+
     </>
   );
 }

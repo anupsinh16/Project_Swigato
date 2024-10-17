@@ -81,7 +81,19 @@ div.inbg h4{
  }
 .icons:hover{
   color: magenta ;
-  font-Size : large;
+  
+}
+.ft1{
+  color: #eeff05;
+  text-decoration: none;
+  font-weight: 500;
+}
+.ft1:hover{
+  color: magenta;
+}
+.bt{
+  color:aqua;
+  text-decoration: none;
 }
 footer{
   
@@ -103,6 +115,15 @@ footer{
 #footer3,.icons{
   margin: 2%;
 }
+#mycart{
+  margin: 2%;
+  width:1450px ;
+  min-height: 490px;
+  max-height: fit-content;
+  background-color: #dadbf3;
+  border: 0px solid;;
+  border-radius: 20px;
+}
 @media screen and (max-width:700px) {
   #feat , footer,.cid{
     flex-direction: column;
@@ -115,12 +136,18 @@ footer{
     width: 150px;
     
   }
+  #mycart{
+    width: min-content;
+    height: min-content;
+  }
 }
 
 #cards{
   margin: 2%;
   justify-content: center;
   background-color: #dadbf3;
+  border-radius: 10px;
+
 }
 .card:hover{
   transform: scale(1.1);

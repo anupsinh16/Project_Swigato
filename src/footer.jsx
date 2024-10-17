@@ -21,9 +21,9 @@ function Footer() {
       <footer>
       <div id="footer1">
         <h3>Important Links</h3>
-        <NavLink to='/about'>About</NavLink>
-        <NavLink to='/contact'>Contact</NavLink>
-        <a href='/cart'>Cart</a>
+        <NavLink to='/about'  className='ft1'>About</NavLink>
+        <NavLink to='/contact' className='ft1'>Contact</NavLink>
+        <a href='/cart'  className='ft1'>Cart</a>
       </div>
 
       <div id="footer2">
