@@ -7,9 +7,10 @@ import { foodinfo } from './Routingapp';
 
 
 
+
 function Cartt() {
 
-  const { cartitem ,setcartitem } = useContext(foodinfo);
+  const { cartitem ,setcartitem,tot,setTot } = useContext(foodinfo);
   console.log("Cart items in Cartt component:", cartitem);
 
   const Removefromcart = (id) => {
@@ -25,10 +26,15 @@ function Cartt() {
     }
     else{
       alert("Order Placed Successfully...");
-      setcartitem([]);
+      const remitem = [];
+      setcartitem(remitem);
+      localStorage.setItem('cart',JSON.stringify(remitem));
+     
     }
     
   }
+
+  
   
 
   // if (!Array.isArray(cartitem)) {
@@ -48,21 +54,31 @@ function Cartt() {
         <img src='/images/empty-cart.webp'></img>
         </>
       ) : (
-        cartitem.map((foodit) => (
+
+        <div className="row" id="cards">
+      {cartitem.map((foodit) => (
+        <div class="card" style={{width:"auto",maxWidth:"25rem",margin:"1%"}}>
           <div key={foodit.id}>
             <div id='cartitem'>
               {foodit.name} - Rs.{foodit.price}
+              
               
               <button className="btn btn-danger" style={{ marginLeft: '10px' }} onClick={() => Removefromcart(foodit.id)}>
                 Remove
               </button>
             </div>
           </div>
-        ))
+          </div>
+          
+        ))}
+        </div>
+        
       )}
       <div>
+        <p>Your Total Bill : {tot}</p>
         <button className='btn btn-success' onClick={placeorder}>Place Order</button>
       </div>
+      <br/><br/>
     </div>
 
     </>

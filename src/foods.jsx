@@ -132,7 +132,10 @@ const food = [{
 
 
 function Foods() {
-  
+  let[tot,setTot] = useState(() => {
+    const tot = localStorage.getItem('total');
+    return tot ? JSON.parse(tot) : 0;
+  });
   const [cartitem, setcartitem] = useState(() => {
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart) : [];
@@ -140,6 +143,10 @@ function Foods() {
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartitem));
+    const newTotal = cartitem.reduce((acc, item) => acc + item.price, 0);
+    setTot(newTotal);  // Update the total state
+    localStorage.setItem('total', JSON.stringify(newTotal));
+    
   }, [cartitem]);
 
 
@@ -157,6 +164,10 @@ function Foods() {
     }
 
     console.log("Current Cart Items:", cartitem);
+
+    
+
+    
   }
 
 
@@ -166,9 +177,11 @@ function Foods() {
     setcartitem (remitem)
   }
 
+
+
   return (
     
-   <foodinfo.Provider value={{ cartitem, setcartitem }}>
+   <foodinfo.Provider value={{ cartitem, setcartitem ,tot,setTot}}>
     <>
     <div>
       <h1 style={{margin:"1%",color:"#494cb6"}}>Food Items</h1>

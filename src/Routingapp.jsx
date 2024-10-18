@@ -24,12 +24,13 @@ function Routing() {
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart):[]
   })  
+  let[tot,setTot] = useState(0);
   
 
 
   return (
    <BrowserRouter>
-   <foodinfo.Provider value={{cartitem, setcartitem}}>
+   <foodinfo.Provider value={{cartitem, setcartitem,tot,setTot}}>
    <Navbar/>
         <Routes>
             <Route path='/' element={<ButtonBaseDemo/>}/>
