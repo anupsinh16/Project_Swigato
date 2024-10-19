@@ -21,6 +21,15 @@ function Cartt() {
     localStorage.setItem('cart', JSON.stringify(remitem));
     
   };
+  useEffect(() => {
+    // Load cart items from localStorage when the component mounts
+    const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    setcartitem(savedCart);
+    
+    // Calculate the total when loading the cart
+    const total = savedCart.reduce((acc, item) => acc + item.price, 0);
+    setTot(total);
+  }, []);
 
   useEffect(()=>{
     const newTotal = cartitem.reduce((acc, item) => acc + item.price, 0);

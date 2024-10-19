@@ -23,7 +23,7 @@ function Footer() {
         <h3>Important Links</h3>
         <NavLink to='/about'  className='ft1'>About</NavLink>
         <NavLink to='/contact' className='ft1'>Contact</NavLink>
-        <a href='/cart'  className='ft1'>Cart</a>
+        <NavLink to='/cart'  className='ft1'>Cart</NavLink>
       </div>
 
       <div id="footer2">

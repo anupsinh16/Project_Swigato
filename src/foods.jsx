@@ -211,7 +211,7 @@ function Foods() {
         ))}
     
     <div style={{marginTop:"2%",marginBottom:"1%"}}>
-      <a href={"/cart"}><button className='btn btn-success'>Go to Cart</button></a>
+      <NavLink to={"/cart"}><button className='btn btn-success'>Go to Cart</button></NavLink>
     </div>
     <br/>
       </div>

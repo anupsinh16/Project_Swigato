@@ -44,7 +44,7 @@ function Navbar() {
           <NavLink className="nav-link" aria-current="page" to='/foods' id='nit'>Foods</NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="./cart" id='nit'>My cart</a>
+          <NavLink className="nav-link" to="/cart" id='nit'>My cart</NavLink>
         </li>
       </ul>
       <form className="d-flex" role="search">
