@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState,useContext,createContext } from 'react';
 import './App.css'
 import { foodinfo } from './Routingapp';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 
@@ -17,7 +18,14 @@ function Cartt() {
     const remitem = cartitem.filter(foodit => foodit.id !== id);
     setcartitem(remitem);
     localStorage.setItem('cart', JSON.stringify(remitem));
+    
   };
+
+  useEffect(()=>{
+    const newTotal = cartitem.reduce((acc, item) => acc + item.price, 0);
+    setTot(newTotal);  // Update the total state
+    localStorage.setItem('total', JSON.stringify(newTotal));
+  },[cartitem])
 
   const placeorder =() =>{
     if(cartitem.length==0){
@@ -54,30 +62,34 @@ function Cartt() {
         <img src='/images/empty-cart.webp'></img>
         </>
       ) : (
-
-        <div className="row" id="cards">
+        <>
+        <div className="column" id="cards" style={{display:"flex", flexDirection:"column", justifyContent : "center",alignItems:"center"}}>
       {cartitem.map((foodit) => (
-        <div class="card" style={{width:"auto",maxWidth:"25rem",margin:"1%"}}>
+        <div class="card" style={{width:"auto",maxWidth:"auto",minWidth:"25rem",height:"auto",margin:"1%"}}>
           <div key={foodit.id}>
-            <div id='cartitem'>
-              {foodit.name} - Rs.{foodit.price}
-              
-              
-              <button className="btn btn-danger" style={{ marginLeft: '10px' }} onClick={() => Removefromcart(foodit.id)}>
-                Remove
+            <div id='cartitem' style={{display:"flex",justifyContent:"space-between"}}>
+              <div>
+              {foodit.name} - Rs.{foodit.price} 
+              </div>
+              <div>
+              | <button className="btn btn-" style={{ marginLeft: '10px' }} onClick={() => Removefromcart(foodit.id)}>
+                <DeleteIcon style={{color:"red"}}/>
               </button>
+              </div>
             </div>
           </div>
           </div>
           
         ))}
         </div>
-        
-      )}
-      <div>
-        <p>Your Total Bill : {tot}</p>
+        <div>
+        <span style={{border:"solid 0px",borderRadius:"5px" ,backgroundColor:"yellow",padding:"0.5%",}}>Your Total Bill : {tot}</span><br/><br/>
         <button className='btn btn-success' onClick={placeorder}>Place Order</button>
       </div>
+        </>
+        
+      )}
+      
       <br/><br/>
     </div>
 

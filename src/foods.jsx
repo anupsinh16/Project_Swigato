@@ -146,6 +146,7 @@ function Foods() {
     const newTotal = cartitem.reduce((acc, item) => acc + item.price, 0);
     setTot(newTotal);  // Update the total state
     localStorage.setItem('total', JSON.stringify(newTotal));
+    console.log(newTotal);
     
   }, [cartitem]);
 
@@ -188,15 +189,20 @@ function Foods() {
 
       <div className="row" id="cards">
         {food.map((foodit) => (
+          
           <div className="col-sm-3 mb-3 mb-sm-0" style={{ margin: "2%" }} key={foodit.id}>
             <div className="card" style={{ width: "18rem", height: "400px" }}>
               <img src={foodit.img} className="card-img-top" alt={foodit.name} />
-              <div className="card-body">
+              <div className="card-body" style={{display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+                <div>
                 <h5 className="card-title">{foodit.name}</h5>
                 <p className="card-text">Price: Rs.{foodit.price}</p>
+                </div>
+                <div>
                 <button className="btn btn-primary" onClick={() => Addtocart(foodit.id, food)}>
                   Add to cart
                 </button>
+                </div>
               </div>
             </div>
           </div>

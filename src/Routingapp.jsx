@@ -24,7 +24,10 @@ function Routing() {
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart):[]
   })  
-  let[tot,setTot] = useState(0);
+  let[tot,setTot] = useState(() => {
+    const tot = localStorage.getItem('total');
+    return tot ? JSON.parse(tot) : 0;
+  });
   
 
 
