@@ -3,6 +3,7 @@ import { useState,useContext,createContext } from 'react';
 import './App.css'
 import { foodinfo } from './Routingapp';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -59,7 +60,8 @@ function Cartt() {
       {cartitem.length === 0 ? (
         <>
         <p>Your cart is empty!</p>
-        <img src='/images/empty-cart.webp'></img>
+        <img src='/images/empty-cart.webp'></img><br/>
+        <NavLink to={"/foods"}><button className='btn btn-success'>Go to Foods</button></NavLink>
         </>
       ) : (
         <>
@@ -83,7 +85,7 @@ function Cartt() {
         ))}
         </div>
         <div>
-        <span style={{border:"solid 0px",borderRadius:"5px" ,backgroundColor:"yellow",padding:"0.5%",}}>Your Total Bill : {tot}</span><br/><br/>
+        <span style={{border:"solid 0px",borderRadius:"5px" ,backgroundColor:"yellow",padding:"0.5%",}}>Your Total Bill : Rs. {tot}</span><br/><br/>
         <button className='btn btn-success' onClick={placeorder}>Place Order</button>
       </div>
         </>

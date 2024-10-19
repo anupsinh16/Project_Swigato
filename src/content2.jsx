@@ -118,7 +118,7 @@ export default function ButtonBaseDemo() {
             <div className='inbg'>
               <br/> <br/> <br/> 
             <img src='/images\SWIGATO.png ' style={{width:"50%",maxWidth:"500px", objectFit:"contain"}}></img>
-                <h3>Just Order and Chill !!!</h3>
+                <h3 >Just Order and Chill !!!</h3>
                     <br/>
                
                 

@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { useContext,createContext,useEffect } from 'react'
 import { foodinfo } from './Routingapp';
+import { NavLink } from 'react-router-dom'
 
 
 const food = [{
@@ -208,8 +209,14 @@ function Foods() {
           </div>
           
         ))}
+    
+    <div style={{marginTop:"2%",marginBottom:"1%"}}>
+      <a href={"/cart"}><button className='btn btn-success'>Go to Cart</button></a>
+    </div>
+    <br/>
       </div>
     </div>
+    
     
     </>
     </foodinfo.Provider>

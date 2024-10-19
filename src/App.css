@@ -15,7 +15,9 @@
   border: 2px ;
   margin: 0.2%;
 }
-
+*{
+  font-family: fredoka;
+}
 
 
 div.background{
