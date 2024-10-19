@@ -22,7 +22,7 @@
 
 div.background{
 
-  background-image: url("./images/bgimg2.jpeg");
+  background-image: url("/images/bgimg2.jpeg");
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
