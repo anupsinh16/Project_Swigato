@@ -15,16 +15,8 @@ import Footer from "./footer.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
   
-    {/* // <App/> */}
-   
-    
     <br/><br/>
     <Routing/>
-    
-    
-    
-    
-
-    
+ 
   </StrictMode>
 )

@@ -119,12 +119,18 @@ footer{
 }
 #mycart{
   margin: 2%;
-  width:1450px ;
-  min-height: 490px;
+  width:auto ;
+  min-height: auto;
   max-height: fit-content;
   background-color: #dadbf3;
-  border: 0px solid;;
+  border: 0px solid;
   border-radius: 20px;
+}
+@media screen and (max-width:460px) {
+  #emptycartimg{
+    width: 250px;
+  }
+  
 }
 @media screen and (max-width:700px) {
   #feat , footer,.cid{
@@ -139,8 +145,8 @@ footer{
     
   }
   #mycart{
-    width: min-content;
-    height: min-content;
+    width: auto;
+    height: auto;
   }
 }
 

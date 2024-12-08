@@ -4,16 +4,16 @@ import './App.css'
 import { foodinfo } from './Routingapp';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { NavLink } from 'react-router-dom';
+import Form2 from './form2';
+import axios from 'axios';
+const user = localStorage.getItem("user");
 
-
-
-
-
-
+const newtot = 0;
 function Cartt() {
 
   const { cartitem ,setcartitem,tot,setTot } = useContext(foodinfo);
   console.log("Cart items in Cartt component:", cartitem);
+  
 
   const Removefromcart = (id) => {
     const remitem = cartitem.filter(foodit => foodit.id !== id);
@@ -33,16 +33,36 @@ function Cartt() {
 
   useEffect(()=>{
     const newTotal = cartitem.reduce((acc, item) => acc + item.price, 0);
+    
     setTot(newTotal);  // Update the total state
     localStorage.setItem('total', JSON.stringify(newTotal));
   },[cartitem])
 
+  
+  const sendOrder = async (currentOrder) => {
+    try{
+      const response = await axios.post(
+        `http://localhost:5000/api/orders`,
+        currentOrder
+      );
+      const {order, token} = response.data;
+    } catch(e){
+      console.log(e);
+    }
+  }
+
+  
   const placeorder =() =>{
     if(cartitem.length==0){
       alert("OOPS....Your Cart is Empty !");
-
     }
     else{
+      const items = [cartitem.map((foodit)=>(foodit.name))];
+      const parsedObj = JSON.parse(user);
+      const OrderByUserID = parsedObj._id;
+      const TotalPrice = tot;
+      const currentOrder = {items, OrderByUserID, TotalPrice};
+      sendOrder(currentOrder);
       alert("Order Placed Successfully...");
       const remitem = [];
       setcartitem(remitem);
@@ -69,7 +89,7 @@ function Cartt() {
       {cartitem.length === 0 ? (
         <>
         <p>Your cart is empty!</p>
-        <img src='/images/empty-cart.webp'></img><br/>
+        <img src='/images/empty-cart.webp' id='emptycartimg'></img><br/>
         <NavLink to={"/foods"}><button className='btn btn-success'>Go to Foods</button></NavLink>
         </>
       ) : (
@@ -95,7 +115,9 @@ function Cartt() {
         </div>
         <div>
         <span style={{border:"solid 0px",borderRadius:"5px" ,backgroundColor:"yellow",padding:"0.5%",}}>Your Total Bill : Rs. {tot}</span><br/><br/>
-        <button className='btn btn-success' onClick={placeorder}>Place Order</button>
+        {user && (<button className='btn btn-success' onClick={placeorder}>Place Order</button>)}
+        {!user && (<NavLink to={"/forms"}><button className='btn btn-success'>Sign in to place order</button></NavLink>)}
+
       </div>
         </>
         

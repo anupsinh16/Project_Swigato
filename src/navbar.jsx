@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import HomeIcon from '@mui/icons-material/Home';
 import { Link, NavLink } from 'react-router-dom';
+const user = localStorage.getItem("user");
 
 function Navbar() {
   
@@ -22,35 +23,32 @@ function Navbar() {
         <li className="nav-item">
           <NavLink className="nav-link active" aria-current="page" to="/about" id='nit' >About</NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to={"/forms"} id='nit'>Sign-in</NavLink>
-          
-        </li>
-         {/* <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            More
-          </a>
-          <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#">MyOrders</a></li>
-            <li><a className="dropdown-item" href="#">Another action</a></li>
-            <li><hr className="dropdown-divider"/></li>
-            <li><a className="dropdown-item" href="#">Something else here</a></li>
-          </ul> 
-        </li>  */}
+        
+        
+
         <li className="nav-item">
           <NavLink className="nav-link" aria-current="page" to='/contact' id='nit'>Contact us</NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" aria-current="page" to='/foods' id='nit'>Foods</NavLink>
         </li>
-        <li className="nav-item">
+        {user && (<li className="nav-item">
           <NavLink className="nav-link" to="/cart" id='nit'>My cart</NavLink>
-        </li>
+        </li>)}
+        {!user && (<li className="nav-item">
+          <NavLink className="nav-link" to={"/forms"} id='nit'>Sign-in</NavLink>
+          
+        </li>)}
+        {user && (<li className="nav-item">
+          <button className="btn btn-outline-danger" onClick={()=>{localStorage.removeItem("user");window.location.reload();}}>logout</button>
+        </li>)}
+        
       </ul>
       <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search for Restaurant and Food" aria-label="Search"/>
+        <input className="form-control me-2" type="search" placeholder="Search for Food" aria-label="Search"/>
         <button className="btn btn-outline-primary" type="submit" style={{color:"white"}}>Search</button>
       </form>
+      
     </div>
   </div>
 </nav>

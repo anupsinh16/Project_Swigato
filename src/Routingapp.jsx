@@ -34,7 +34,7 @@ function Routing() {
   return (
    <BrowserRouter>
    <foodinfo.Provider value={{cartitem, setcartitem,tot,setTot}}>
-   <Navbar/>
+      <Navbar/>
         <Routes>
             <Route path='/' element={<ButtonBaseDemo/>}/>
             <Route path='/about' element={<About/>}/>
