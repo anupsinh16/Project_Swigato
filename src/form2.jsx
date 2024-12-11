@@ -32,7 +32,7 @@ const Form2 = () => {
   const registerUser = async (currentUser) => {
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/signup`,
+        `https://project-swigato-swej.vercel.app/api/signup`,
         currentUser
       );
       const { user, token } = response.data;
@@ -50,7 +50,7 @@ const Form2 = () => {
   const loginUser = async (currentUser) => {
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/login`,
+        `https://project-swigato-swej.vercel.app/api/login`,
         currentUser
       );
       const { user, token } = response.data;

@@ -64,6 +64,7 @@ app.use("/api-docs", swaggerUI.serve,swaggerUI.setup(openapiSpecification));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
+  
 });
 
 // http://localhost:3000/ -> Whenever someone does a GET request on this endpoint, send him/her "Hello World"

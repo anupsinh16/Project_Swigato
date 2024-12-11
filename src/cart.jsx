@@ -42,7 +42,7 @@ function Cartt() {
   const sendOrder = async (currentOrder) => {
     try{
       const response = await axios.post(
-        `http://localhost:5000/api/orders`,
+        `https://project-swigato-swej.vercel.app/api/orders`,
         currentOrder
       );
       const {order, token} = response.data;

@@ -146,11 +146,13 @@ import axios from 'axios'
 
 function Foods() {
   const [food, setfood] = useState([]);
+  const [loading,setloading] = useState(true);
 
   useEffect(()=>{
     async function fetchdata(){
       try{
-        const response = await axios.get(`http://localhost:5000/api/dishes`);
+        const response = await axios.get(`https://project-swigato-swej.vercel.app/api/dishes`);
+        setloading(false);
         setfood(response.data);
       }
       catch(error){
@@ -214,10 +216,14 @@ function Foods() {
    <foodinfo.Provider value={{ cartitem, setcartitem ,tot,setTot}}>
     <>
     <div>
+      
       <h1 style={{margin:"1%",color:"#494cb6"}}>Food Items</h1>
 
+      {loading ? <h3>Loading...</h3> : (
+      
       <div className="row" id="cards">
-        {food.map((foodit) => (
+        
+        {food && food.map((foodit) => (
           
           <div className="col-sm-3 mb-3 mb-sm-0" style={{ margin: "2%" }} key={foodit.id}>
             <div className="card" style={{ width: "18rem", height: "400px" }}>
@@ -236,38 +242,25 @@ function Foods() {
             </div>
           </div>
           
-        ))}
+        ))} 
     
-    <div style={{marginTop:"2%",marginBottom:"1%"}}>
-      <NavLink to={"/cart"}><button className='btn btn-success'>Go to Cart</button></NavLink>
-    </div>
-    <br/>
+      <div style={{marginTop:"2%",marginBottom:"1%"}}>
+        <NavLink to={"/cart"}><button className='btn btn-success'>Go to Cart</button></NavLink>
       </div>
+
+      <br/>
+
+      </div>)}
+
     </div>
-    
+      
+      
     
     </>
     </foodinfo.Provider>
     
 
-    /* <div>
-      <h1>My Cart</h1>
-
-      {cartitem.length === 0 ? (
-        <p>Your cart is empty!</p>
-      ) : (
-        cartitem.map((foodit) => (
-          <div key={foodit.id}>
-            <p>
-              {foodit.name} - Rs.{foodit.price}
-              <button className="btn btn-danger" style={{ marginLeft: '10px' }} onClick={() => Removefromcart(foodit.id)}>
-                Remove
-              </button>
-            </p>
-          </div>
-        ))
-      )}
-    </div> */
+    
     
     
   );
